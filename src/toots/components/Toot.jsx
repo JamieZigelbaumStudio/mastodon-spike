@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import parse from 'html-react-parser';
 
 export const Toot = (props) => {
 
@@ -16,6 +17,6 @@ export const Toot = (props) => {
     }
 
     return status ? <div>
-        {status.data.content}
+        {parse(status.data.content)}
     </div> : "Loading status";
 };
