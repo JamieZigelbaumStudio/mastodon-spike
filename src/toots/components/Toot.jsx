@@ -1,34 +1,18 @@
-import React, {useState} from "react";
-import parse from 'html-react-parser';
+import React from "react";
+import {Link} from "react-router-dom";
 
 export const Toot = (props) => {
-
-    const [status, setStatus] = useState();
-
-    const getStatus = () => {
-        return props.mastodon
-            .fetchStatus(props.toot.id);
-
-    };
-
-    if (!status) {
-        getStatus()
-            .then(status => setStatus(status));
-    }
-
-    const parseDom = (thread) => {
-        return thread.map(stat => {
-            return <li>{parse(stat.content)}</li>;
-        });
-    };
-
     const displayThread = () => {
-        const thread = status.data.descendants;
-        if (!thread.length) {
-            return <div>No thread</div>
-        }
-        return <ul>{parseDom(thread)}</ul>;
+        return <Link to={{
+            pathname: `/status/${props.toot.id}`,
+            query: {
+                id: props.toot.id
+            },
+            mastodon: props.mastodon
+        }}>
+            {props.toot.id}
+        </Link>
     };
 
-    return status ? displayThread() : "Loading status";
+    return displayThread();
 };
