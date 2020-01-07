@@ -1,7 +1,9 @@
 const mastodonAPI = require('mastodon-api');
 
+const TIMELINES_HOME = '/timelines/home';
+const STATUS = '/statuses';
+
 export class Mastodon {
-    TIMELINES_HOME = '/timelines/home';
 
     constructor(domain, accessToken) {
         this.domain = domain;
@@ -10,7 +12,11 @@ export class Mastodon {
     }
 
     fetchHome = () => {
-        return this.mastodon.get(this.TIMELINES_HOME, {limit: 2})
+        return this.mastodon.get(TIMELINES_HOME, {limit: 2})
+    };
+
+    fetchStatus = (id) => {
+        return this.mastodon.get(`${STATUS}/${id}`);
     };
 
     getConfig = () => {
