@@ -6,10 +6,10 @@ import {masToServer} from "../../model/MasToServer";
 export const Toots = (props) => {
     const [accessToken,] = useState(props.token);
     const [toots, setToots] = useState();
+    const mastodon = new Mastodon(masToServer.api_url, accessToken);
 
     const fetchToots = () => {
-        const mas = new Mastodon(masToServer.api_url, accessToken);
-        mas
+        mastodon
             .fetchHome()
             .then(response => setToots(response.data));
     };
@@ -20,9 +20,8 @@ export const Toots = (props) => {
 
     const displayToots = () => {
         return toots.map(data => {
-            console.log(data);
             return <li>
-                <Toot toot={data}/>
+                <Toot toot={data} mastodon={mastodon}/>
             </li>
         });
     };

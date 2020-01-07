@@ -1,7 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 
 export const Toot = (props) => {
-    return <div>
-        {props.toot.content}
-    </div>
+
+    const [status, setStatus] = useState();
+
+    const getStatus = () => {
+        return props.mastodon
+            .fetchStatus(props.toot.id);
+
+    };
+
+    if (!status) {
+        getStatus()
+            .then(status => setStatus(status));
+    }
+
+    return status ? <div>
+        {status.data.content}
+    </div> : "Loading status";
 };
