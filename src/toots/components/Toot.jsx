@@ -16,7 +16,19 @@ export const Toot = (props) => {
             .then(status => setStatus(status));
     }
 
-    return status ? <div>
-        {parse(status.data.content)}
-    </div> : "Loading status";
+    const parseDom = (thread) => {
+        return thread.map(stat => {
+            return <li>{parse(stat.content)}</li>;
+        });
+    };
+
+    const displayThread = () => {
+        const thread = status.data.descendants;
+        if (!thread.length) {
+            return <div>No thread</div>
+        }
+        return <ul>{parseDom(thread)}</ul>;
+    };
+
+    return status ? displayThread() : "Loading status";
 };
