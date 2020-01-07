@@ -29,7 +29,15 @@ export const Login = () => {
     const [redirectUrl, setRedirectUrl] = useState("");
     const [accessToken, setAccessToken] = useState("");
 
+    const tokenInStorage = window.localStorage.getItem('token');
+    if (tokenInStorage) {
+        return <Toots token={tokenInStorage}/>
+    }
+
     if (accessToken) {
+        if (!window.localStorage.getItem('token')) {
+            window.localStorage.setItem('token', accessToken);
+        }
         return <Toots token={accessToken}/>
     }
 
