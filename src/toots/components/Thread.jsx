@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import parse from "html-react-parser";
+import {Toot} from "./Toot";
 
 export const Thread = (props) => {
     const [status, setStatus] = useState();
@@ -17,7 +17,7 @@ export const Thread = (props) => {
 
     const parseDom = (thread) => {
         return thread.map(stat => {
-            return <li>{parse(stat.content)}</li>;
+            return <li><Toot status={stat.content}/></li>;
         });
     };
 
