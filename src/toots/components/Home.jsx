@@ -20,7 +20,7 @@ export const Home = (props) => {
 
     const displayTimeline = () => {
         return toots.map(data => {
-            return <li>
+            return <li key={data.id.toString()}>
                 <ThreadLink toot={data} mastodon={mastodon}/>
             </li>
         });

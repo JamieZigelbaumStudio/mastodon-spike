@@ -17,7 +17,7 @@ export const Thread = (props) => {
 
     const parseDom = (thread) => {
         return thread.map(stat => {
-            return <li><Toot status={stat.content}/></li>;
+            return <li key={stat.id}><Toot status={stat.content}/></li>;
         });
     };
 
