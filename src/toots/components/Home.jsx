@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Timeline} from "./Timeline";
+import {ThreadLink} from "./ThreadLink";
 import {Mastodon} from "../../api/auth/Mastodon";
 import {masToServer} from "../../model/MasToServer";
 
@@ -21,7 +21,7 @@ export const Home = (props) => {
     const displayTimeline = () => {
         return toots.map(data => {
             return <li>
-                <Timeline toot={data} mastodon={mastodon}/>
+                <ThreadLink toot={data} mastodon={mastodon}/>
             </li>
         });
     };

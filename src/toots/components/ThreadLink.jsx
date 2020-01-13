@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const Timeline = (props) => {
+export const ThreadLink = (props) => {
     const displayThread = () => {
         return <Link to={{
             pathname: `/status/${props.toot.id}`,
