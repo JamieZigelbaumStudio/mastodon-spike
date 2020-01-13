@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import parse from "html-react-parser";
 
-export const TootThread = (props) => {
+export const Thread = (props) => {
     const [status, setStatus] = useState();
     const id = props.location.query.id;
 

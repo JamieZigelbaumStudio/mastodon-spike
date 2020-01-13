@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Button} from "../styles/Button";
 import {masToServer} from "../../model/MasToServer";
 import {Authorization} from "../../api/auth/Authorization";
-import {Toots} from "../../toots/components/Toots";
+import {Home} from "../../toots/components/Home";
 
 const getAuthorizationCode = () => {
     const url = window.location.href;
@@ -31,14 +31,14 @@ export const Login = () => {
 
     const tokenInStorage = window.localStorage.getItem('token');
     if (tokenInStorage) {
-        return <Toots token={tokenInStorage}/>
+        return <Home token={tokenInStorage}/>
     }
 
     if (accessToken) {
         if (!window.localStorage.getItem('token')) {
             window.localStorage.setItem('token', accessToken);
         }
-        return <Toots token={accessToken}/>
+        return <Home token={accessToken}/>
     }
 
     const buttonClicked = () => {

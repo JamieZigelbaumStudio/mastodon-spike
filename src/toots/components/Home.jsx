@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {Toot} from "./Toot";
+import {Timeline} from "./Timeline";
 import {Mastodon} from "../../api/auth/Mastodon";
 import {masToServer} from "../../model/MasToServer";
 
-export const Toots = (props) => {
+export const Home = (props) => {
     const [accessToken,] = useState(props.token);
     const [toots, setToots] = useState();
     const mastodon = new Mastodon(masToServer.api_url, accessToken);
@@ -18,16 +18,16 @@ export const Toots = (props) => {
         fetchToots();
     }
 
-    const displayToots = () => {
+    const displayTimeline = () => {
         return toots.map(data => {
             return <li>
-                <Toot toot={data} mastodon={mastodon}/>
+                <Timeline toot={data} mastodon={mastodon}/>
             </li>
         });
     };
 
     return !toots ? <div>Fetching toots</div> : <div>
         Logged In!
-        <ul>{displayToots()}</ul>
+        <ul>{displayTimeline()}</ul>
     </div>
 };

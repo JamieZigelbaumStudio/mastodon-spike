@@ -1,11 +1,11 @@
 import React from "react";
 import {HashRouter, Route, Switch} from "react-router-dom";
 import {Login} from "../login/components/Login";
-import {TootThread} from "../toots/components/TootThread";
+import {Thread} from "../toots/components/Thread";
 
 export const Routes = () => {
     const loginRoute = <Route exact path="/" component={Login} />;
-    const statusRoute = <Route path="/status/:id" component={TootThread} />;
+    const statusRoute = <Route path="/status/:id" component={Thread} />;
 
     return <HashRouter>
         <Switch>
