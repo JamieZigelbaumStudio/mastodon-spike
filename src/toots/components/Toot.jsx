@@ -1,7 +1,21 @@
 import React from "react";
-import parse from "html-react-parser";
-import sanitizeHtml from "sanitize-html"
+import parse, {domToReact} from "html-react-parser";
 
 export const Toot = (props) => {
-    return props.status ? parse(sanitizeHtml(props.status)) : "Fetching status"
+    const options = {
+        replace: ({attribs, children}) => {
+            if (attribs?.class === 'u-url mention') {
+                const reactChildren = domToReact(children, options);
+                return React.createElement(
+                    'span',
+                    {
+                        style: {color: 'red'}
+                    },
+                    reactChildren.filter(child => child !== '@')
+                );
+            }
+        }
+    };
+
+    return props.status ? parse(props.status, options) : "Fetching status"
 };
