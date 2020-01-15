@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {ThreadLink} from "./ThreadLink";
-import {Mastodon} from "../../api/auth/Mastodon";
-import {masToServer} from "../../model/MasToServer";
-import {Styled} from "../styles/Toot"
+import {Mastodon} from "../../../api/auth/Mastodon";
+import {masToServer} from "../../common/model/MasToServer";
+import * as S from "../styles/Home"
 
 export const Home = (props) => {
     const [accessToken,] = useState(props.token);
@@ -21,9 +21,9 @@ export const Home = (props) => {
 
     const displayTimeline = () => {
         return toots.map(data => {
-            return <Styled.StatusID key={data.id.toString()}>
+            return <S.StatusID key={data.id.toString()}>
                 <ThreadLink toot={data} mastodon={mastodon}/>
-            </Styled.StatusID>
+            </S.StatusID>
         });
     };
 

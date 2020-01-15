@@ -1,6 +1,6 @@
 import React from "react";
-import {Login} from "../login/components/Login";
-import {Thread} from "../toots/components/Thread";
+import {Login} from "../pages/login/components/Login";
+import {Thread} from "../pages/toots/components/thread/Thread";
 
 export const Routes = [
     {

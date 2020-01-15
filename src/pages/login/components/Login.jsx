@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Button} from "../styles/Button";
-import {masToServer} from "../../model/MasToServer";
-import {Authorization} from "../../api/auth/Authorization";
-import {Home} from "../../toots/components/Home";
+import {masToServer} from "../../common/model/MasToServer";
+import {Authorization} from "../../../api/auth/Authorization";
+import {Home} from "../../home/component/Home";
 
 const getAuthorizationCode = () => {
     const url = window.location.href;

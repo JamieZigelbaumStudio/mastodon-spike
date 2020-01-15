@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {HashRouter, Route, Switch} from "react-router-dom";
-import {Routes} from "./routing/Routes";
+import {Routes} from "./route/Routes";
 
 function App() {
     return (
