@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Toot} from "./Toot";
 import {Styled} from "../../styles/thread/Toot"
-import * as S from "../../styles/assets/Assets"
 import {Assets} from "../assets/Assets";
 
 export const Thread = (props) => {
@@ -36,9 +35,7 @@ export const Thread = (props) => {
                 <Styled.Thread>
                     <ul>{getThreadStatus(thread)}</ul>
                 </Styled.Thread>
-                <S.Assets>
-                    <Assets/>
-                </S.Assets>
+                <Assets/>
             </Styled.ThreadWrapper>
         );
     };
