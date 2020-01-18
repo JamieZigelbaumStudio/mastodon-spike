@@ -3,7 +3,7 @@ import {Toot} from "./Toot";
 import {Assets} from "../assets/Assets";
 import {masToServer} from "../../../common/model/MasToServer";
 import {Mastodon} from "../../../../api/auth/Mastodon";
-import {ThreadContent, ThreadWrapper} from "../../styles/thread/Toot";
+import {ThreadContent, ThreadWrapper} from "../../styles/thread/Thread";
 
 export const Thread = (props) => {
     const [status, setStatus] = useState();
