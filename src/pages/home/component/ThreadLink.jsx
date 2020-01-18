@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {Toot} from "../../toots/components/thread/Toot";
 
 export const ThreadLink = (props) => {
     const displayThread = () => {
@@ -10,7 +11,7 @@ export const ThreadLink = (props) => {
             },
             mastodon: props.mastodon
         }}>
-            {props.toot.id}
+            <Toot status={props.toot.content}/>
         </Link>
     };
 
