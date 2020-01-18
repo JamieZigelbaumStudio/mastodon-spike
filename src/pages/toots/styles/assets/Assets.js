@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const AssetsWrapper = styled.div`
   flex:1;
-  margin: 2rem;
+  margin: 1rem;
+  border: 1px solid;
+  padding: 1rem;
   flex-direction: column;
   justify-content: space-around;
 `;

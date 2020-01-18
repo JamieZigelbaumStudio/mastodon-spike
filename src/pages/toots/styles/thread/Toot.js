@@ -5,6 +5,7 @@ const ThreadWrapper = styled.div`
 `;
 
 const Thread = styled.div`
+  border: 1px solid;
   display: flex;
   flex-direction: column;
   flex: 4;
