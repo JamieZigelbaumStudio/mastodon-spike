@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
-const ThreadWrapper = styled.div`
+export const ThreadWrapper = styled.div`
   display: flex;
+  justify-content: space-around;
 `;
 
-const Thread = styled.div`
+export const ThreadContent = styled.div`
   border: 1px solid;
   display: flex;
   flex-direction: column;
   flex: 4;
+  margin: 1rem 0 1rem 1rem;
+  padding: 1rem;
 `;
-
-export const Styled = {
-    ThreadWrapper,
-    Thread
-};

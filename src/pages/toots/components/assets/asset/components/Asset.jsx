@@ -19,7 +19,7 @@ export const Asset = (props) => {
     function displayAssetPrice() {
         return <AssetPrice>
             Set Asset Price:
-            <TextField required id="standard-required" label="Required" type="number"/>
+            <TextField required id="standard-required" label="Enter Price" type="number"/>
         </AssetPrice>;
     }
 

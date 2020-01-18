@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Toot} from "./Toot";
-import {Styled} from "../../styles/thread/Toot"
 import {Assets} from "../assets/Assets";
 import {masToServer} from "../../../common/model/MasToServer";
 import {Mastodon} from "../../../../api/auth/Mastodon";
+import {ThreadContent, ThreadWrapper} from "../../styles/thread/Toot";
 
 export const Thread = (props) => {
     const [status, setStatus] = useState();
@@ -32,24 +32,24 @@ export const Thread = (props) => {
 
     const getThreadStatus = (thread) => {
         return thread.map(stat => {
-            return <li key={stat.id}>
+            return <div key={stat.id}>
                 <Toot status={stat.content}/>
-            </li>;
+            </div>;
         });
     };
 
     const displayThread = () => {
         const thread = status.data.descendants;
         if (!thread.length) {
-            return <Styled.ThreadWrapper>No thread</Styled.ThreadWrapper>
+            return <ThreadWrapper>No thread found!</ThreadWrapper>
         }
         return (
-            <Styled.ThreadWrapper>
-                <Styled.Thread>
-                    <ul>{getThreadStatus(thread)}</ul>
-                </Styled.Thread>
+            <ThreadWrapper>
+                <ThreadContent>
+                    {getThreadStatus(thread)}
+                </ThreadContent>
                 <Assets/>
-            </Styled.ThreadWrapper>
+            </ThreadWrapper>
         );
     };
 
