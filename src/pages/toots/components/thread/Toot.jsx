@@ -17,5 +17,18 @@ export const Toot = (props) => {
         }
     };
 
-    return props.status ? parse(props.status, options) : "Fetching status"
+    const addHighlightToAsset = (color) => {
+        if (!props.asset) {
+            return props.status;
+        }
+        const regExp = new RegExp(`${props.asset.name}`, 'gi');
+        return props.status.replace(regExp, `<span style="color:${color};">${props.asset.name}</span>`);
+    };
+
+    const parseStatus = () => {
+        const highlightedString = addHighlightToAsset('red');
+        return parse(highlightedString, options);
+    };
+
+    return props.status ? parseStatus() : "Fetching status"
 };
