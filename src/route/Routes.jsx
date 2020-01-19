@@ -11,4 +11,10 @@ export const Routes = [
         path: '/status/:id',
         component: Thread,
         exact: true
-    }];
+    },
+    {
+        path: '/marketplace',
+        component: Login,
+        exact: true
+    },
+];
