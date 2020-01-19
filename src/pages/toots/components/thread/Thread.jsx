@@ -19,11 +19,15 @@ export const Thread = (props) => {
         const mastodon = props.location.mastodon ?
             props.location.mastodon : createMastodonInstance();
 
-        const id = props.location.query ?
-            props.location.query.id : window.location.hash.match(/\d+$/);
-
+        const id = getStatusID();
         return mastodon
             .fetchStatus(id);
+
+    };
+
+    const getStatusID = () => {
+        return props.location.query ?
+            props.location.query.id : window.location.hash.match(/\d+$/)[0];
     };
 
     if (!status) {
@@ -53,7 +57,7 @@ export const Thread = (props) => {
                 <ThreadContent>
                     {getThreadStatus(thread)}
                 </ThreadContent>
-                <Assets assetCallback={assetCallback}/>
+                <Assets assetCallback={assetCallback} tootID={getStatusID()}/>
             </ThreadWrapper>
         );
     };

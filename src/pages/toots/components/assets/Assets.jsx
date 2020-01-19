@@ -6,8 +6,8 @@ import {Asset} from "./asset/components/Asset";
 import {TextField} from "./asset/styles/Asset";
 
 export const Assets = (props) => {
-    const [assets] = useState(MockAssets);
-    const [selectedAsset, setSelectedAsset] = useState(assets[0]);
+    const [assets] = useState(MockAssets[`${props.tootID}`]);
+    const [selectedAsset, setSelectedAsset] = useState();
 
     const handleChange = (event) => {
         const selectedAsset = fetchAsset(event.target.value);

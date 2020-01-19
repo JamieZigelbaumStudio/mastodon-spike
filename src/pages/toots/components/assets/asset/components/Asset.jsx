@@ -1,5 +1,5 @@
 import React from "react";
-import {AssetContent, AssetName, AssetPrice, AssetShares, AssetWrapper} from "../styles/Asset";
+import {AssetContent, AssetName, AssetNotSelected, AssetPrice, AssetShares, AssetWrapper} from "../styles/Asset";
 import TextField from '@material-ui/core/TextField';
 
 export const Asset = (props) => {
@@ -23,11 +23,11 @@ export const Asset = (props) => {
         </AssetPrice>;
     }
 
-    return <AssetWrapper>
+    return props.asset ? <AssetWrapper>
         {displayAssetName()}
         <AssetContent>
             {displayAssetPrice()}
             {displayAssetShare()}
         </AssetContent>
-    </AssetWrapper>
+    </AssetWrapper> : <AssetNotSelected>No asset selected</AssetNotSelected>
 };
