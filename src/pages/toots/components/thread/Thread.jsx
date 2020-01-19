@@ -7,6 +7,7 @@ import {ThreadContent, ThreadWrapper} from "../../styles/thread/Thread";
 
 export const Thread = (props) => {
     const [status, setStatus] = useState();
+    const [selectedAsset, setSelectedAsset] = useState();
 
     const getStatus = () => {
         function createMastodonInstance() {
@@ -33,9 +34,13 @@ export const Thread = (props) => {
     const getThreadStatus = (thread) => {
         return thread.map(stat => {
             return <div key={stat.id}>
-                <Toot status={stat.content}/>
+                <Toot status={stat.content} asset={selectedAsset}/>
             </div>;
         });
+    };
+
+    const assetCallback = (currentAsset) => {
+        setSelectedAsset(currentAsset[0]);
     };
 
     const displayThread = () => {
@@ -48,7 +53,7 @@ export const Thread = (props) => {
                 <ThreadContent>
                     {getThreadStatus(thread)}
                 </ThreadContent>
-                <Assets/>
+                <Assets assetCallback={assetCallback}/>
             </ThreadWrapper>
         );
     };
