@@ -9,7 +9,7 @@ export const Toot = (props) => {
                 return React.createElement(
                     'span',
                     {
-                        style: {color: 'red'}
+                        style: {color: 'blue'}
                     },
                     reactChildren.filter(child => child !== '@')
                 );
