@@ -1,5 +1,6 @@
 import {Login} from "../pages/login/components/Login";
 import {Thread} from "../pages/toots/components/thread/Thread";
+import {Marketplace} from "../pages/marketplace/components/Marketplace";
 
 export const Routes = [
     {
@@ -14,7 +15,7 @@ export const Routes = [
     },
     {
         path: '/marketplace',
-        component: Login,
+        component: Marketplace,
         exact: true
     },
 ];

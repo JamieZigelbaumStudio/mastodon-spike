@@ -5,6 +5,7 @@ import {AssetsTitle, AssetsWrapper} from "../../styles/assets/Assets";
 import {Asset} from "./asset/components/Asset";
 import {AssetBuyButton, DropdownOverride} from "./asset/styles/Asset";
 import Button from "@material-ui/core/Button";
+import {Link} from "react-router-dom";
 
 export const Assets = (props) => {
     const [assets] = useState(MockAssets[`${props.tootID}`]);
@@ -38,29 +39,26 @@ export const Assets = (props) => {
         </div>;
     };
 
-    const redirectToMarketplace = () => {
-        //TODO: Use alternate reroute mechanism
-        window.location.href = "#/marketplace";
-    };
-
     function displayBuyButton() {
         if (selectedAsset) {
             return <AssetBuyButton>
-                <Button variant="contained" color="primary" onClick={redirectToMarketplace}>
-                    Buy
+                <Button variant="contained" color="primary">
+                    <Link to={{
+                        pathname: "/marketplace"
+                    }}>
+                        Buy
+                    </Link>
                 </Button>
             </AssetBuyButton>;
         }
     }
 
-    return (
-        <AssetsWrapper>
-            <AssetsTitle>
-                ASSETS
-            </AssetsTitle>
-            {selectAssetFromDropdown()}
-            <Asset asset={selectedAsset}/>
-            {displayBuyButton()}
-        </AssetsWrapper>
-    );
+    return <AssetsWrapper>
+        <AssetsTitle>
+            ASSETS
+        </AssetsTitle>
+        {selectAssetFromDropdown()}
+        <Asset asset={selectedAsset}/>
+        {displayBuyButton()}
+    </AssetsWrapper>
 };
