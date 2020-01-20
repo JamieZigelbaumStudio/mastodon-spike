@@ -44,7 +44,8 @@ export const Assets = (props) => {
             return <AssetBuyButton>
                 <Button variant="contained" color="primary">
                     <Link to={{
-                        pathname: "/marketplace"
+                        pathname: "/marketplace",
+                        asset: selectedAsset
                     }}>
                         Buy
                     </Link>
