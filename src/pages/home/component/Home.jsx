@@ -3,7 +3,8 @@ import {ThreadLink} from "./ThreadLink";
 import {Mastodon} from "../../../api/auth/Mastodon";
 import {masToServer} from "../../common/model/MasToServer";
 import * as S from "../styles/Home"
-import {HomeTitle, HomeWrapper, Timeline} from "../styles/Home"
+import {HomeHeader, HomeTitle, HomeWrapper, LogoutButton, Timeline} from "../styles/Home"
+import {LoginTitle} from "../../login/styles/Login";
 
 export const Home = (props) => {
     const [accessToken,] = useState(props.token);
@@ -28,10 +29,20 @@ export const Home = (props) => {
         });
     };
 
-    return !toots ? <div>Fetching toots</div> : <HomeWrapper>
-        <HomeTitle>
-            Timeline
-        </HomeTitle>
+    const handleLogout = () => {
+        window.localStorage.removeItem('token');
+        window.location.href = '/';
+    };
+
+    return !toots ? <LoginTitle>Loading...</LoginTitle> : <HomeWrapper>
+        <HomeHeader>
+            <HomeTitle>
+                Timeline
+            </HomeTitle>
+            <LogoutButton onClick={handleLogout}>
+                Log Out
+            </LogoutButton>
+        </HomeHeader>
         <Timeline>
             {displayTimeline()}
         </Timeline>

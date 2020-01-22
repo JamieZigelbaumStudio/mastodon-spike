@@ -1,5 +1,6 @@
 import React from "react";
 import parse, {domToReact} from "html-react-parser";
+import {Loader} from "../../../login/styles/Login";
 
 export const Toot = (props) => {
     const options = {
@@ -30,5 +31,5 @@ export const Toot = (props) => {
         return parse(highlightedString, options);
     };
 
-    return props.status ? parseStatus() : "Fetching status"
+    return props.status ? parseStatus() : <Loader>Loading...</Loader>;
 };

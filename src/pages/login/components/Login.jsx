@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {LoginButton, LoginTitle, LoginWrapper} from "../styles/Login";
+import {Loader, LoginButton, LoginTitle, LoginWrapper} from "../styles/Login";
 import {masToServer} from "../../common/model/MasToServer";
 import {Authorization} from "../../../api/auth/Authorization";
 import {Home} from "../../home/component/Home";
@@ -57,10 +57,10 @@ export const Login = () => {
             .then(token => setAccessToken(token));
     }
 
-    return <LoginWrapper>
+    return !authorizationCode ? <LoginWrapper>
         <LoginTitle>
             Welcome To StoryCoin
         </LoginTitle>
         <LoginButton onClick={buttonClicked}>Login with Mastodon</LoginButton>
-    </LoginWrapper>
+    </LoginWrapper> : <Loader>Loading...</Loader>;
 };

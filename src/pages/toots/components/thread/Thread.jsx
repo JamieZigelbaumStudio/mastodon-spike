@@ -4,6 +4,7 @@ import {Assets} from "../assets/Assets";
 import {masToServer} from "../../../common/model/MasToServer";
 import {Mastodon} from "../../../../api/auth/Mastodon";
 import {ThreadContent, ThreadWrapper} from "../../styles/thread/Thread";
+import {Loader} from "../../../login/styles/Login";
 
 export const Thread = (props) => {
     const [status, setStatus] = useState();
@@ -62,5 +63,5 @@ export const Thread = (props) => {
         );
     };
 
-    return status ? displayThread(status) : "Fetching status"
+    return status ? displayThread(status) : <Loader>Loading...</Loader>;
 };

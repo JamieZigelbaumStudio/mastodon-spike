@@ -22,3 +22,5 @@ export const LoginTitle = styled.div`
     font-size: 3rem;
     text-align: center;
 `;
+
+export const Loader = LoginTitle;
