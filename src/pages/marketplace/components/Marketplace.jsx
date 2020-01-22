@@ -10,6 +10,6 @@ export const Marketplace = (props) => {
 
         <AssetDetails asset={props.location.asset}/>
     </MarketplaceWrapper> : <MarketplaceTitle>
-        Nothing to buy/sell
+        Oops! Nothing to mint.
     </MarketplaceTitle>;
 };

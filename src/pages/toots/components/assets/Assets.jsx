@@ -46,7 +46,7 @@ export const Assets = (props) => {
                         pathname: "/marketplace",
                         asset: selectedAsset
                     }}>
-                        Buy
+                        Mint
                     </Link>
                 </Button>
             </AssetBuyButton>;
