@@ -12,7 +12,7 @@ export class Mastodon {
     }
 
     fetchHome = () => {
-        return this.mastodon.get(TIMELINES_HOME, {limit: 5})
+        return this.mastodon.get(TIMELINES_HOME, {limit: 40})
     };
 
     fetchStatus = (id) => {
