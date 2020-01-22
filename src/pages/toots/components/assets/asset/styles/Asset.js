@@ -42,5 +42,8 @@ export const AssetNotSelected = styled.div`
 `;
 
 export const AssetBuyButton = styled.div`
-  padding: 3rem 0 0 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 `;

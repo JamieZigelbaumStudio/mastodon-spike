@@ -5,23 +5,28 @@ import TextField from '@material-ui/core/TextField';
 export const Asset = (props) => {
 
     function displayAssetName() {
+        const assetCoin = `${props.asset.name}Coin`;
         return <AssetName>
-            Asset Name: {props.asset.name}
+            Asset Name: {assetCoin}
         </AssetName>;
     }
 
     function displayAssetShare() {
         return <AssetShares>
-            Shares available: {props.asset.shares}
+            Coins available: {props.asset.shares}
         </AssetShares>;
     }
 
-    function displayAssetPrice() {
+    const handlePriceChange = (event) => {
+        props.callback(event.target.value);
+    };
+
+    const displayAssetPrice = () => {
         return <AssetPrice>
-            Set Asset Price:
-            <TextField required id="standard-required" label="Enter Price" type="number"/>
-        </AssetPrice>;
-    }
+            Set Price Per Coin:
+            <TextField required id="standard-required" label="Enter Price" type="number" onChange={handlePriceChange}/>
+        </AssetPrice>
+    };
 
     return props.asset ? <AssetWrapper>
         {displayAssetName()}

@@ -12,4 +12,6 @@ export const ThreadContent = styled.div`
   flex: 4;
   margin: 1rem 0 1rem 1rem;
   padding: 1rem;
+  max-height: 100vh;
+  overflow: auto;
 `;
