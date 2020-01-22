@@ -3,6 +3,7 @@ import {ThreadLink} from "./ThreadLink";
 import {Mastodon} from "../../../api/auth/Mastodon";
 import {masToServer} from "../../common/model/MasToServer";
 import * as S from "../styles/Home"
+import {HomeTitle, HomeWrapper, Timeline} from "../styles/Home"
 
 export const Home = (props) => {
     const [accessToken,] = useState(props.token);
@@ -27,8 +28,12 @@ export const Home = (props) => {
         });
     };
 
-    return !toots ? <div>Fetching toots</div> : <div>
-        Logged In!
-        {displayTimeline()}
-    </div>
+    return !toots ? <div>Fetching toots</div> : <HomeWrapper>
+        <HomeTitle>
+            Timeline
+        </HomeTitle>
+        <Timeline>
+            {displayTimeline()}
+        </Timeline>
+    </HomeWrapper>
 };
