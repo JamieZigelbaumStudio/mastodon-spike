@@ -17,16 +17,16 @@ export const Toot = (props) => {
         }
     };
 
-    const addHighlightToAsset = (color) => {
+    const addHighlightToAsset = () => {
         if (!props.asset) {
             return props.status;
         }
         const regExp = new RegExp(`${props.asset.name}`, 'gi');
-        return props.status.replace(regExp, `<span style="color:${color};">${props.asset.name}</span>`);
+        return props.status.replace(regExp, `<mark>${props.asset.name}</mark>`);
     };
 
     const parseStatus = () => {
-        const highlightedString = addHighlightToAsset('red');
+        const highlightedString = addHighlightToAsset();
         return parse(highlightedString, options);
     };
 
