@@ -2,14 +2,14 @@ const thread1MockAssets = [
     {
         name: "DShelby",
         id: 1,
-        price: 200,
+        price: 400,
         shares: 100
     },
     {
         name: "Authors",
         id: 2,
         price: 400,
-        shares: 90
+        shares: 100
     }
 ];
 
@@ -17,26 +17,26 @@ const thread2MockAssets = [
     {
         name: "Articulator",
         id: 1,
-        price: 200,
+        price: 400,
         shares: 100
     },
     {
         name: "Cartesian Clone",
         id: 2,
         price: 400,
-        shares: 80
+        shares: 100
     },
     {
         name: "Calcite",
         id: 3,
         price: 400,
-        shares: 10
+        shares: 100
     },
     {
         name: "Derrick",
         id: 4,
         price: 400,
-        shares: 40
+        shares: 100
     }
 ];
 
