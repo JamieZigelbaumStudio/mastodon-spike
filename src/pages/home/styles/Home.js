@@ -8,6 +8,8 @@ export const Timeline = styled.div`
   border: 1px solid;
   margin-top: 4rem;
   padding: 1rem;
+  max-height: 85vh;
+  overflow: auto;
 `;
 
 export const HomeWrapper = styled.div`
@@ -36,7 +38,6 @@ export const LogoutButton = styled.button`
   margin-right: 2rem;
   outline: 0;
   height: 2.8rem;
-  //width: 8rem;
   font-size: 1.2rem;
   cursor: pointer;
   width: fit-content;
